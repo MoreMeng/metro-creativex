@@ -15,7 +15,7 @@ Metro CreativeX is based on Underscores http://underscores.me/, (C) 2012-2013 Au
 html, body, body div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, figure, footer, header, hgroup, menu, nav, section, time, mark, audio, video {margin: 0;padding: 0;border: 0;outline: 0;font-size: 100%;vertical-align: baseline;background: transparent;} input, textarea, img { outline: none; border:none;-webkit-appearance: none;border-radius: 0; }article, aside, figure, footer, header, hgroup, nav, section, time {display: block;}a {text-decoration: none;color: inherit;}.clearfix { clear: both; }
 html { font-size: 62.5%; }
 body {
-	background: #000000;
+	background: #212121;
 	font-size: normal;
 	font-family: 'Source Sans Pro', sans-serif;
 }
@@ -33,19 +33,41 @@ body {
 .metro_creativex_only_customizer{
 	display: none;
 }
-/* Colors */
-.bg-code { background: #d1334e; }
-.color-code:hover, .color_nor-code { color: #d1334e; }
-.bg-design { background: #e25a37; }
-.color-design:hover, .color_nor-design { color: #e25a37; }
-.bg-responsive { background: #e2af37; }
-.color-responsive:hover, .color_nor-responsive { color: #e2af37; }
-.bg-web { background: #64c831; }
-.color-web:hover, .color_nor-web { color: #64c831; }
-.bg-wordpress { background: #2f83c0; }
-.color-wordpress:hover, .color_nor-wordpress { color: #2f83c0; }
-.bg-stuff { background: #6b2fc0; }
-.color-stuff:hover, .color_nor-stuff { color: #6b2fc0; }
+/* Colors MoreMeng */
+.bg-quote { background: #6b2fc0; }
+.color-quote:hover, .color_nor-quote { color: #6b2fc0; }
+
+.bg-standard { background: #4ea628; }
+.color-standard:hover, .color_nor-standard { color: #4ea628; }
+.post a, .post a:visited {color: #4ea628;}
+
+.bg-chat { background: #e25a37; }
+.color-chat:hover, .color_nor-chat { color: #e25a37; }
+
+.bg-aside { background: #d1334e; }
+.color-aside:hover, .color_nor-aside { color: #d1334e; }
+
+.bg-gallery { background: #e2af37; }
+.color-gallery:hover, .color_nor-gallery { color: #e2af37; }
+
+.bg-image { background: #1daabf; }
+.color-image:hover, .color_nor-image { color: #1DAABF; }
+
+.bg-status {background: #2f683b;}
+.color-status:hover, .color_nor-status { color: #2f683b; }
+
+.bg-link {background: #b7b7b7;}
+.color-link:hover, .color_nor-link { color: #b7b7b7; }
+
+.bg-video {background: #a61c00;}
+.color-video:hover, .color_nor-video { color: #a61c00; }
+
+.bg-audio {background: #dd6dab;}
+.color-audio:hover, .color_nor-audio { color: #dd6dab; }
+/**
+ * MoreMeng .title
+ */
+.title {font-size: 1.5em;}
 /* Header */
 header nav a .read {
 	-webkit-transition: all 0.5s cubic-bezier(.71, .48, .37, .94);
@@ -198,6 +220,7 @@ header nav a .read span, #searchform .searchbutton:hover {
 	font-size: 1.8rem;
 	font-weight: 700;
 	margin-bottom: 1rem;
+	color:white;
 }
 #content article .post_content .excerpt {
 	font-size: 1.8rem;
