@@ -6,11 +6,11 @@
 function metro_creativex_setup() {
 
 	global $content_width;
-	
+
 	if ( ! isset( $content_width ) ) $content_width = 600;
-	
+
 	load_theme_textdomain( 'metro-creativex', get_template_directory() . '/languages' );
-	
+
 	/*
 	* Register menus
 	*/
@@ -22,7 +22,7 @@ function metro_creativex_setup() {
 	// Add theme support for Featured Images
 	add_theme_support( 'post-thumbnails' );
 	add_theme_support( 'automatic-feed-links' );
-	
+
 	/*
      * Let WordPress manage the document title.
      * By adding theme support, we declare that this theme does not use a
@@ -30,7 +30,7 @@ function metro_creativex_setup() {
      * provide it for us.
      */
 	add_theme_support( 'title-tag' );
-	
+
     /**
      * Enable support for Post Formats
      */
@@ -111,9 +111,9 @@ function metro_creativex_theme_scripts() {
 	wp_enqueue_style( 'metro_creativex-style', get_stylesheet_uri() );
 
 	wp_enqueue_style( 'metro_creativex_opensans-font', '//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800');
-	
+
 	wp_enqueue_style( 'metro_creativex_sourcesans-font', '//fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic');
-	
+
     wp_enqueue_script( 'metro_creativex_jscript', get_template_directory_uri() . '/js/script.js', array('jquery'), '1.0', true );
 
     wp_enqueue_script( 'metro_creativex_carouFredSel', get_template_directory_uri() . '/js/jquery.carouFredSel-6.1.0.js', array('jquery'), '6.1', true );
@@ -163,28 +163,28 @@ function metro_creativex_register_required_plugins()
 
 
         array(
- 
+
             'name'      => 'Custom Login customizer',
- 
+
             'slug'      => 'login-customizer',
- 
+
             'required'  => false,
- 
+
         ),
 
         array(
- 
+
             'name'      => 'Revive Old Post (Former Tweet Old Post)',
- 
+
             'slug'      => 'tweet-old-post',
- 
+
             'required'  => false,
- 
+
         )
 
     );
 
-	 
+
 
 
     $config = array(
@@ -311,7 +311,7 @@ function metro_creativex_comment( $comment, $args, $depth ) {
 	endswitch; // end comment_type check
 }
 
-
+//  MoreMeng 2015-10-27
 add_filter( 'post_class', 'metro_creativex_post_class' );
 
  function metro_creativex_post_class( $classes ){
@@ -321,16 +321,10 @@ add_filter( 'post_class', 'metro_creativex_post_class' );
 		$class[] = 'post';
 	else:
 		$format = get_post_format($post->ID);
-		if($format == 'aside'):
-			$class[] = 'bg-design';
-		elseif(($format == 'audio') || ($format == 'video')):
-			$class[] = 'bg-wordpress';
-		elseif(($format == 'gallery') || ($format == 'image')):
-			$class[] = 'bg-responsive';
-		elseif(($format == 'link') || ($format == 'quote') || ($format == 'status')):
-			$class[] = 'bg-web';
+		if($format != ''):
+			$class[] = 'bg-'.$format;
 		else:
-			$class[] = 'bg-stuff';
+			$class[] = 'bg-standard';
 		endif;
 	endif;
 
@@ -360,47 +354,47 @@ function metro_creativex_excerpt_max_charlength($charlength) {
 add_action('wp_footer','metro_creativex_php_style', 100);
 
 function metro_creativex_php_style() {
-	
+
 	echo ' <style type="text/css">';
-	
+
 	$metro_creativex_text_color = get_theme_mod('metro-creativex_text_color');
 	if( !empty($metro_creativex_text_color) ):
 		echo '	#topside h1, #content article .post_content, #content p, .insidepost_date, header, #searchform .searchtext, p, span { color: '. esc_attr($metro_creativex_text_color) .' !important; }';
 	endif;
-	
+
 	$metro_creativex_link_color = get_theme_mod('metro-creativex_link_color');
 	if( !empty($metro_creativex_link_color) ):
 		echo ' .left-sidebar li a, #content article .post_content a, a { color: '. esc_attr($metro_creativex_link_color) .' !important; }';
-	endif;	
-	
+	endif;
+
 	$metro_creativex_link_color_hover = get_theme_mod('metro-creativex_link_color_hover');
 	if( !empty($metro_creativex_link_color_hover) ):
 		echo ' .left-sidebar li a:hover, #content article .post_content a:hover, a:hover { color: '. esc_attr($metro_creativex_link_color_hover) .' !important; }';
-	endif;	
-	
+	endif;
+
 	$metro_creativex_nav_color = get_theme_mod('metro-creativex_nav_color');
 	if( !empty($metro_creativex_nav_color) ):
 		echo ' #topside .pages ul a { color: '. esc_attr($metro_creativex_nav_color) .' !important; }';
-	endif;	
-	
+	endif;
+
 	$metro_creativex_nav_color_hover = get_theme_mod('metro-creativex_nav_color_hover');
 	if( !empty($metro_creativex_nav_color_hover) ):
 		echo ' #topside .pages ul a:hover { color: '. esc_attr($metro_creativex_nav_color_hover) .' !important; }';
-	endif;		
-	
+	endif;
+
 	$metro_creativex_sidebar_title_color = get_theme_mod('metro-creativex_sidebar_title_color');
 	if( !empty($metro_creativex_sidebar_title_color) ):
 		echo ' .widget-title { color: '. esc_attr($metro_creativex_sidebar_title_color) .' !important; }';
-	endif;	
-	
+	endif;
+
 	echo '</style>';
-	
+
 }
 
 
 add_action( 'metro-creativex_sidebar', 'metro_creativex_sidebar_display', 10 );
 function metro_creativex_sidebar_display(){
-?>	
+?>
 	<nav>
 		<?php
 		  $metro_creativex_terms = get_categories();
@@ -413,9 +407,9 @@ function metro_creativex_sidebar_display(){
 					$metro_creativex_post_nr_display = 'articles';
 				}
 			  echo '
-				<a href="' . get_category_link( $metro_creativex_term->term_id ) . '" class="color-code" title="' . $metro_creativex_term->name.'">
+				<a href="' . get_category_link( $metro_creativex_term->term_id ) . '" class="color-standard" title="' . $metro_creativex_term->name.'">
 					' .'<span>'. $metro_creativex_term->name.'</span>'.'
-					<div class="read bg-code">
+					<div class="read bg-standard">
 						<p>'.$metro_creativex_post_nr.'</p><span>'.$metro_creativex_post_nr_display.'</span>
 					</div>
 				</a>';
@@ -423,10 +417,10 @@ function metro_creativex_sidebar_display(){
 		  }
 		?>
 	</nav>
-	
+
 	<div class="left-sidebar sidebar-desktop">
 		<?php get_sidebar(); ?>
-	</div>		
+	</div>
 <?php
 	 do_action('metro_creativex_social');
 }
@@ -532,7 +526,7 @@ add_action('single_header','metro_creativex_display_single_header');
 function metro_creativex_display_single_header(){
 ?>
 	<h1 class="insidepost" style="background-image:url(
-	<?php 
+	<?php
 	$metro_creativex_template_url = get_template_directory_uri();
 	if (has_post_format( 'aside' )) {
 		echo $metro_creativex_template_url.'/images/pt_aside.png';
@@ -556,7 +550,7 @@ function metro_creativex_display_single_header(){
 		echo $metro_creativex_template_url.'/images/pt_standard.png';
 	}
 	?>);"><?php the_title(); ?></h1>
-	<div class="insidepost_date"><?php echo get_the_date(); ?> - <?php the_category(', ') ?></div>		
+	<div class="insidepost_date"><?php echo get_the_date(); ?> - <?php the_category(', ') ?></div>
 <?php
 }
 
