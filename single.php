@@ -66,10 +66,10 @@ get_header(); ?>
 					// $contact = get_field_object('contact');
 					// $traveling = get_field_object('traveling');
 					// $gps = get_field_object('gps');
-					echo '<h3>'.$fields['address']['label'].'</h3><p>'.$fields['address']['value'].'</p>';
-					echo '<h3>'.$fields['open']['label'].'</h3><p>'.$fields['open']['value'].'</p>';
-					echo '<h3>'.$fields['traveling']['label'].'</h3><p>'.$fields['traveling']['value'].'</p>';
-					echo '<h3>'.$fields['gps']['label'].'</h3><p>'.$fields['gps']['value'].'</p>';
+					echo '<h3>'.$fields['address']['label'].'</h3><div class="tags">'.$fields['address']['value'].'</div>';
+					echo '<h3>'.$fields['open']['label'].'</h3><div class="tags">'.$fields['open']['value'].'</div>';
+					echo '<h3>'.$fields['traveling']['label'].'</h3><div class="tags">'.$fields['traveling']['value'].'</div>';
+					echo '<h3>'.$fields['gps']['label'].'</h3><div class="tags">'.$fields['gps']['value'].'</div>';
 					echo '<h3>'.$fields['maps']['label'].'</h3>
 						<div class="acf-map">
 							<div class="marker" data-lat="'. $fields['maps']['value']['lat'].'" data-lng="'.$fields['maps']['value']['lng'].'"></div>
